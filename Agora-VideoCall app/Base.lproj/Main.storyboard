@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ag6-fe-RxP">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Dash Board View Controller-->
+        <scene sceneID="3p5-tS-ood">
+            <objects>
+                <viewController id="4H9-NB-Oep" customClass="DashBoardViewController" customModule="Agora_VideoCall_app" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xLb-Xq-Rhc">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Agora.io Sample" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4wi-Np-qtb">
+                                <rect key="frame" x="70" y="82" width="250" height="57"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="npf-t7-85i"/>
+                                    <constraint firstAttribute="height" constant="57" id="wf7-bI-sjh"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="GillSans-SemiBold" family="Gill Sans" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="bGColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FZk-8s-Z54" customClass="Neumorphic" customModule="Agora_VideoCall_app" customModuleProvider="target">
+                                <rect key="frame" x="35" y="167" width="320" height="136"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Video Call one to one" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t3Z-Rj-1qw">
+                                        <rect key="frame" x="40" y="55" width="240" height="26"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="240" id="ZWa-j8-wDF"/>
+                                            <constraint firstAttribute="height" constant="26" id="yI0-pL-4Gq"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="GillSans-Bold" family="Gill Sans" pointSize="22"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="bGColor">
+                                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3op-2g-VPI">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="136"/>
+                                        <connections>
+                                            <action selector="VideoCallWithSender:" destination="4H9-NB-Oep" eventType="touchUpInside" id="9tK-Er-S2P"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.1035426213" green="0.57432107990000003" blue="0.93962641359999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="3op-2g-VPI" firstAttribute="top" secondItem="FZk-8s-Z54" secondAttribute="top" id="38q-16-rOc"/>
+                                    <constraint firstItem="t3Z-Rj-1qw" firstAttribute="centerX" secondItem="FZk-8s-Z54" secondAttribute="centerX" id="CHm-G3-X0X"/>
+                                    <constraint firstItem="3op-2g-VPI" firstAttribute="leading" secondItem="FZk-8s-Z54" secondAttribute="leading" id="PCw-WE-4qC"/>
+                                    <constraint firstAttribute="height" constant="136" id="Tvf-V8-dMq"/>
+                                    <constraint firstAttribute="trailing" secondItem="3op-2g-VPI" secondAttribute="trailing" id="YPg-z1-cEb"/>
+                                    <constraint firstItem="t3Z-Rj-1qw" firstAttribute="centerY" secondItem="FZk-8s-Z54" secondAttribute="centerY" id="cYC-2X-UVT"/>
+                                    <constraint firstAttribute="bottom" secondItem="3op-2g-VPI" secondAttribute="bottom" id="xeG-Zj-Y2A"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="bGColor">
+                                        <color key="value" red="0.1035426213" green="0.57432107990000003" blue="0.93962641359999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TOU-Zd-ofS" customClass="Neumorphic" customModule="Agora_VideoCall_app" customModuleProvider="target">
+                                <rect key="frame" x="35" y="333" width="320" height="136"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G4x-xy-evt">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="136"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="15"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Group Call " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rak-gP-J5Z">
+                                        <rect key="frame" x="97" y="55" width="126" height="26"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="126" id="1Y6-dP-ehh"/>
+                                            <constraint firstAttribute="height" constant="26" id="1zu-hp-hyo"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="GillSans-Bold" family="Gill Sans" pointSize="22"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="bGColor">
+                                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="G4x-xy-evt" firstAttribute="leading" secondItem="TOU-Zd-ofS" secondAttribute="leading" id="3DF-Sz-J4u"/>
+                                    <constraint firstItem="G4x-xy-evt" firstAttribute="top" secondItem="TOU-Zd-ofS" secondAttribute="top" id="V5J-Mc-UCT"/>
+                                    <constraint firstItem="rak-gP-J5Z" firstAttribute="centerX" secondItem="TOU-Zd-ofS" secondAttribute="centerX" id="aee-Q9-dHh"/>
+                                    <constraint firstAttribute="bottom" secondItem="G4x-xy-evt" secondAttribute="bottom" id="bAt-8X-5Gz"/>
+                                    <constraint firstAttribute="trailing" secondItem="G4x-xy-evt" secondAttribute="trailing" id="gaa-M6-IYZ"/>
+                                    <constraint firstAttribute="height" constant="136" id="mTd-B8-pl1"/>
+                                    <constraint firstItem="rak-gP-J5Z" firstAttribute="centerY" secondItem="TOU-Zd-ofS" secondAttribute="centerY" id="y89-Q4-FBF"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="bGColor">
+                                        <color key="value" red="0.1035426213" green="0.57432107990000003" blue="0.93962641359999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="bIv-Hw-fJc"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="bIv-Hw-fJc" firstAttribute="trailing" secondItem="FZk-8s-Z54" secondAttribute="trailing" constant="35" id="JMu-IC-LCr"/>
+                            <constraint firstItem="TOU-Zd-ofS" firstAttribute="leading" secondItem="bIv-Hw-fJc" secondAttribute="leading" constant="35" id="TU3-3j-YIC"/>
+                            <constraint firstItem="TOU-Zd-ofS" firstAttribute="top" secondItem="FZk-8s-Z54" secondAttribute="bottom" constant="30" id="Vzk-GT-WR3"/>
+                            <constraint firstItem="4wi-Np-qtb" firstAttribute="top" secondItem="bIv-Hw-fJc" secondAttribute="top" constant="38" id="dVT-kq-hb7"/>
+                            <constraint firstItem="bIv-Hw-fJc" firstAttribute="trailing" secondItem="TOU-Zd-ofS" secondAttribute="trailing" constant="35" id="dZN-lM-vJZ"/>
+                            <constraint firstItem="FZk-8s-Z54" firstAttribute="top" secondItem="4wi-Np-qtb" secondAttribute="bottom" constant="28" id="heT-j2-zkC"/>
+                            <constraint firstItem="FZk-8s-Z54" firstAttribute="leading" secondItem="bIv-Hw-fJc" secondAttribute="leading" constant="35" id="pU7-bU-bXZ"/>
+                            <constraint firstItem="4wi-Np-qtb" firstAttribute="centerX" secondItem="xLb-Xq-Rhc" secondAttribute="centerX" id="spq-cA-qvB"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="bGColor">
+                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <navigationItem key="navigationItem" id="qy1-ZG-xnh"/>
+                    <connections>
+                        <outlet property="videoCallOnetoone" destination="FZk-8s-Z54" id="pFk-1e-ppD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sZS-Ce-FGU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="44.615384615384613" y="159.24170616113744"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController storyboardIdentifier="ViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="ViewController" customModule="Agora_VideoCall_app" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kow-BE-Red">
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="810"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mute" translatesAutoresizingMaskIntoConstraints="NO" id="Ztp-2r-wDg">
+                                        <rect key="frame" x="180" y="628" width="30" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="8Of-fI-540"/>
+                                            <constraint firstAttribute="width" constant="30" id="k1T-ZE-hDC"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="Ztp-2r-wDg" secondAttribute="bottom" constant="152" id="SOw-ey-Zx3"/>
+                                    <constraint firstItem="Ztp-2r-wDg" firstAttribute="centerX" secondItem="Kow-BE-Red" secondAttribute="centerX" id="Wps-0x-raQ"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eBi-bY-80r">
+                                <rect key="frame" x="250" y="84" width="100" height="120"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mute" translatesAutoresizingMaskIntoConstraints="NO" id="VIh-4g-aY8">
+                                        <rect key="frame" x="35" y="82" width="30" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="Ctk-DJ-f8v"/>
+                                            <constraint firstAttribute="width" constant="30" id="hQy-Z6-4rf"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="cNQ-7n-LAh"/>
+                                    <constraint firstAttribute="bottom" secondItem="VIh-4g-aY8" secondAttribute="bottom" constant="8" id="e8A-LT-syy"/>
+                                    <constraint firstItem="VIh-4g-aY8" firstAttribute="centerX" secondItem="eBi-bY-80r" secondAttribute="centerX" id="uq0-fP-Zzw"/>
+                                    <constraint firstAttribute="width" constant="100" id="yav-DW-QTR"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="TXc-aD-4SR" appends="YES" id="PZB-cn-jQl"/>
+                                </connections>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o1E-cs-qHg">
+                                <rect key="frame" x="0.0" y="664" width="390" height="180"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lGX-jK-bc7" userLabel="muteButton">
+                                        <rect key="frame" x="77" y="62.666666666666629" width="55" height="55"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="55" id="A7v-pw-yha"/>
+                                            <constraint firstAttribute="width" secondItem="lGX-jK-bc7" secondAttribute="height" multiplier="1:1" id="Dxd-a5-z7K"/>
+                                        </constraints>
+                                        <state key="normal" title="Mute" image="mic"/>
+                                        <state key="selected" image="mute"/>
+                                        <state key="highlighted" image="mic_pressed"/>
+                                        <connections>
+                                            <action selector="mikeHandlerAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CTF-ly-Qmp"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZjV-hs-rdS" userLabel="hangUpButton">
+                                        <rect key="frame" x="160" y="55" width="70" height="70"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="70" id="8fh-0C-YCx"/>
+                                            <constraint firstAttribute="width" secondItem="ZjV-hs-rdS" secondAttribute="height" id="uq7-CA-Mpb"/>
+                                        </constraints>
+                                        <state key="normal" title="Hang Up" image="end"/>
+                                        <state key="selected" image="call"/>
+                                        <connections>
+                                            <action selector="callHandlerAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KIA-Od-HyT"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NbZ-ZA-W3h" userLabel="switchCameraButton">
+                                        <rect key="frame" x="258" y="62.666666666666629" width="55" height="55"/>
+                                        <state key="normal" title="Switch Camera" image="switch"/>
+                                        <state key="selected" image="switch"/>
+                                        <state key="highlighted" image="switch_pressed"/>
+                                        <connections>
+                                            <action selector="switchCameraAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0xl-8L-FhG"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.029331447556614876" green="0.0049979444593191147" blue="0.0041951979510486126" alpha="0.10123843238467262" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="180" id="7cI-TK-HpK"/>
+                                    <constraint firstItem="NbZ-ZA-W3h" firstAttribute="width" secondItem="lGX-jK-bc7" secondAttribute="width" id="Jbn-6R-X5X"/>
+                                    <constraint firstAttribute="bottom" secondItem="ZjV-hs-rdS" secondAttribute="bottom" constant="55" id="coZ-tR-RHq"/>
+                                    <constraint firstItem="lGX-jK-bc7" firstAttribute="width" secondItem="lGX-jK-bc7" secondAttribute="height" multiplier="1:1" id="fM3-Qn-d8O"/>
+                                    <constraint firstItem="lGX-jK-bc7" firstAttribute="centerY" secondItem="ZjV-hs-rdS" secondAttribute="centerY" id="g5L-zV-QMl"/>
+                                    <constraint firstItem="NbZ-ZA-W3h" firstAttribute="height" secondItem="lGX-jK-bc7" secondAttribute="height" id="jcq-NZ-qAe"/>
+                                    <constraint firstItem="NbZ-ZA-W3h" firstAttribute="leading" secondItem="ZjV-hs-rdS" secondAttribute="trailing" constant="28" id="oML-vA-cU6"/>
+                                    <constraint firstItem="ZjV-hs-rdS" firstAttribute="leading" secondItem="lGX-jK-bc7" secondAttribute="trailing" constant="28" id="pUH-sP-hKN"/>
+                                    <constraint firstItem="ZjV-hs-rdS" firstAttribute="width" secondItem="ZjV-hs-rdS" secondAttribute="height" id="tqq-lQ-9VV"/>
+                                    <constraint firstItem="ZjV-hs-rdS" firstAttribute="centerX" secondItem="o1E-cs-qHg" secondAttribute="centerX" id="vTv-f9-bqB"/>
+                                    <constraint firstItem="NbZ-ZA-W3h" firstAttribute="centerY" secondItem="ZjV-hs-rdS" secondAttribute="centerY" id="ydL-6S-GTA"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="eBi-bY-80r" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="40" id="6fs-Hz-Ofd"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="eBi-bY-80r" secondAttribute="trailing" constant="40" id="D0q-bM-wSd"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Kow-BE-Red" secondAttribute="trailing" id="GJa-Wn-gFR"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="o1E-cs-qHg" secondAttribute="trailing" id="RFf-Ta-jvG"/>
+                            <constraint firstItem="o1E-cs-qHg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="aX9-PH-QkI"/>
+                            <constraint firstItem="Kow-BE-Red" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="nJy-WZ-LGe"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Kow-BE-Red" secondAttribute="bottom" id="nuh-oK-lM2"/>
+                            <constraint firstAttribute="bottom" secondItem="o1E-cs-qHg" secondAttribute="bottom" id="sKv-to-Yg7"/>
+                            <constraint firstItem="Kow-BE-Red" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ttQ-2c-eEe"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="bGColor">
+                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <connections>
+                        <outlet property="cameraButton" destination="NbZ-ZA-W3h" id="KaV-Ab-Wjh"/>
+                        <outlet property="micButton" destination="lGX-jK-bc7" id="FJ1-0V-ouA"/>
+                        <outlet property="recieverContainer" destination="Kow-BE-Red" id="RZX-0l-mtL"/>
+                        <outlet property="recieverVideoMutedIndicator" destination="Ztp-2r-wDg" id="on0-op-mQh"/>
+                        <outlet property="speakerContainer" destination="eBi-bY-80r" id="oFc-WI-BR4"/>
+                        <outlet property="speakerVideoMutedIndicator" destination="VIh-4g-aY8" id="Opw-Rr-X2b"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="TXc-aD-4SR">
+                    <connections>
+                        <action selector="didClickLocalVideo:" destination="BYZ-38-t0r" id="yrl-5n-Uzu"/>
+                        <outlet property="delegate" destination="BYZ-38-t0r" id="oJW-Uo-nGW"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="803.07692307692309" y="158.53080568720378"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="3NN-Ju-Pex">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="ag6-fe-RxP" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="haR-aC-TFY">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="4H9-NB-Oep" kind="relationship" relationship="rootViewController" id="7iU-7r-hsN"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LvH-sm-C9B" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-884.61538461538464" y="159.24170616113744"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="call" width="284" height="284"/>
+        <image name="end" width="292" height="292"/>
+        <image name="mic" width="220" height="220"/>
+        <image name="mic_pressed" width="220" height="220"/>
+        <image name="mute" width="204" height="204"/>
+        <image name="switch" width="220" height="220"/>
+        <image name="switch_pressed" width="220" height="220"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
