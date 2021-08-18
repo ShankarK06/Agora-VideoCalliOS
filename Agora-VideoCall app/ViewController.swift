@@ -297,7 +297,6 @@ extension ViewController: AgoraRtcEngineDelegate {
     func rtcEngine(_ engine: AgoraRtcEngineKit, didOfflineOfUid uid:UInt, reason:AgoraUserOfflineReason) {
         isRecieverVideoRender = false
         if let it = recieverVideo, it.uid == uid {
-            removeFromParent(it)
             recieverVideo = nil
         }
     }
