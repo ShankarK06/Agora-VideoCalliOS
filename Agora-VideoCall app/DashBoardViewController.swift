@@ -26,6 +26,7 @@ class DashBoardViewController: UIViewController {
     
     @IBAction func groupCall(sender: UIButton) {
         //coming soon
+        self.view.makeToast("Coming soon", duration: 3, position: .bottom)
     }
     
 }

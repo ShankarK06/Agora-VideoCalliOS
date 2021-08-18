@@ -30,7 +30,7 @@ class ViewController: UIViewController {
             if let it = speakerVideo, let view = it.view {
                 if view.superview == speakerContainer {
                     recieverVideoMutedIndicator.isHidden = isRecieverVideoRender
-                    recieverContainer.isHidden = !isRecieverVideoRender
+//                    recieverContainer.isHidden = !isRecieverVideoRender
                     self.recieverContainer.bringSubviewToFront(recieverVideoMutedIndicator)
 
                 } else if view.superview == recieverContainer {
@@ -165,7 +165,16 @@ class ViewController: UIViewController {
         isSpeakerVideoRender = !sender.isSelected
         agoraKit?.muteLocalAudioStream(sender.isSelected)
         self.view.makeToast(isSpeakerVideoRender == true ? "unmutted" : "mutted", duration: 2.0, position: .bottom)
-
+    }
+    
+    @IBAction func videoTurnOnOff(_ sender: UIButton) {
+        sender.isSelected.toggle()
+        // mute local audio
+        if(sender.isSelected){
+            agoraKit?.disableVideo()
+        }else{
+            agoraKit?.enableVideo()
+        }
     }
     
     @IBAction func didClickLocalVideo(_ sender: Any) {
@@ -185,7 +194,6 @@ class ViewController: UIViewController {
             speakerContainer.addSubview(canvas!.view!)
         }
     }
-    
     
     func removeFromParent(_ canvas: AgoraRtcVideoCanvas?) -> UIView? {
         if let it = canvas, let view = it.view {
@@ -214,9 +222,6 @@ extension ViewController: AgoraRtcEngineDelegate {
             }
         }
 
-        // Only one remote video view is available for this
-        // tutorial. Here we check if there exists a surface
-        // view tagged as this uid.
         if recieverVideo != nil {
             return
         }
@@ -230,35 +235,55 @@ extension ViewController: AgoraRtcEngineDelegate {
         agoraKit?.setupRemoteVideo(recieverVideo!)
 
     }
+    
+    //local Video did stopped
     func rtcEngineVideoDidStop(_ engine: AgoraRtcEngineKit) {
         debugPrint("rtcEngineVideoDidStop : Video not available")
+        self.view.makeToast("Video stopped", duration: 3, position: .bottom)
+    }
+    
+    func rtcEngine(_ engine: AgoraRtcEngineKit, didVideoEnabled enabled: Bool, byUid uid: UInt) {
+        if(!enabled) {
+            self.view.makeToast("Speaker Video paused", duration: 3, position: .bottom)
+        }
 
     }
+    
+    //User Connection Lost
     func rtcEngineConnectionDidLost(_ engine: AgoraRtcEngineKit) {
         debugPrint("rtcEngineConnectionDidLost : Connection not available")
-
+        self.view.makeToast("Connection Lost, check your connection", duration: 3, position: .bottom)
     }
+    
+    //User Camera is ready
     func rtcEngineCameraDidReady(_ engine: AgoraRtcEngineKit) {
         debugPrint("rtcEngineCameraDidReady : Camera is Ready ")
-
     }
+    
+    //Speaker mutted or not
     func rtcEngine(_ engine: AgoraRtcEngineKit, didAudioMuted muted: Bool, byUid uid: UInt) {
         isRecieverVideoRender = !muted
         debugPrint("didAudioMuted : Audio mutted ",muted)
         self.view.makeToast(muted == true ? "speaker mutted" : "speaker unmutted", duration: 2.0, position: .bottom)
 
-
     }
+    
+    //User didMicrophoneEnabled
     func rtcEngine(_ engine: AgoraRtcEngineKit, didMicrophoneEnabled enabled: Bool) {
         debugPrint("rtcEngineMediaEngineDidStartCall : didMicrophoneEnabled ",enabled)
     }
+    
+    //User Started Call
     func rtcEngineMediaEngineDidStartCall(_ engine: AgoraRtcEngineKit) {
         debugPrint("rtcEngineMediaEngineDidStartCall : Call Started ")
-
     }
+    
+    //User connection Interrupted
     func rtcEngineConnectionDidInterrupted(_ engine: AgoraRtcEngineKit) {
         debugPrint("rtcEngineConnectionDidInterrupted : Connect Interrupted ")
+        self.view.makeToast("Connect Interrupted", duration: 3, position: .bottom)
     }
+    
     func rtcEngineConnectionDidBanned(_ engine: AgoraRtcEngineKit) {
         
     }
