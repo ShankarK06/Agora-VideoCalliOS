@@ -6,12 +6,22 @@
 //
 
 import UIKit
+import Foundation
 import AgoraRtcKit
 
 //One to one Video Call Controller
 
+
+
 class ViewController: UIViewController {
     
+    @IBOutlet weak var delayLabel: UILabel!
+    @IBOutlet weak var rxbLabel: UILabel!
+    @IBOutlet weak var txBLabel: UILabel!
+    var lastmileDelay: Array<Int> = Array<Int>()
+    var rxKbitrate: Array<Int> = Array<Int>()
+    var txKBitrate: Array<Int> = Array<Int>()
+
     var randomUserId: Int = 0
     @IBOutlet weak var micButton: UIButton!
     @IBOutlet weak var cameraButton: UIButton!
@@ -300,5 +310,66 @@ extension ViewController: AgoraRtcEngineDelegate {
             recieverVideo = nil
         }
     }
+    
+    func rtcEngine(_ engine: AgoraRtcEngineKit, reportRtcStats stats: AgoraChannelStats) {
+        let stat = stats
+        debugPrint("lastmileDelay")
+
+        debugPrint(stats.lastmileDelay)
+        debugPrint("rxKBitrate")
+
+        debugPrint(stats.rxKBitrate)
+        debugPrint("txKBitrate")
+
+        debugPrint(stats.txKBitrate)
+        
+        // retrive the stored data
+        if UserDefaults.standard.object(forKey: "lastmileDelay") != nil {
+            self.lastmileDelay = UserDefaults.standard.object(forKey: "lastmileDelay") as! Array<Int>
+        }
+        if UserDefaults.standard.object(forKey: "txKBitrate") != nil {
+            self.txKBitrate = UserDefaults.standard.object(forKey: "txKBitrate") as! Array<Int>
+        }
+        if UserDefaults.standard.object(forKey: "rxKbitrate") != nil {
+            self.rxKbitrate = UserDefaults.standard.object(forKey: "rxKbitrate") as! Array<Int>
+        }
+
+        // check the count is greater than or equal to ten
+        if(self.lastmileDelay.count >= 10) {
+            self.lastmileDelay.remove(at: 0)
+            self.txKBitrate.remove(at:0)
+            self.rxKbitrate.remove(at:0)
+        }else{
+            self.lastmileDelay.append(stats.lastmileDelay)
+            self.txKBitrate.append(stats.txKBitrate)
+            self.rxKbitrate.append(stats.rxKBitrate)
+        }
+        
+        // save the data for lastmileDelay,txKBitrate, rxKbitrate for the call
+        UserDefaults.standard.setValue(lastmileDelay, forKey: "lastmileDelay")
+        UserDefaults.standard.setValue(txKBitrate, forKey: "txKBitrate")
+        UserDefaults.standard.setValue(rxKbitrate, forKey: "rxKbitrate")
+
+        let lastestDelay: Int = lastmileDelay.last ?? 0
+        let lastestTXB: Int = txKBitrate.last ?? 0
+        let lastestRXB: Int = rxKbitrate.last ?? 0
+        
+//        Update the values in the Screen
+        self.txBLabel.text = String.init(format: "TxKBitrate: %D, Average: %D ", lastestTXB, calculateAvearage(values: txKBitrate) )
+        self.rxbLabel.text = String.init(format: "RxKBitrate: %D, Average: %D ", lastestRXB, calculateAvearage(values: rxKbitrate) )
+        self.delayLabel.text = String.init(format: "LastmileDelay: %D, Average: %D ", lastestDelay, calculateAvearage(values: lastmileDelay) )
+
+        
+    }
+    
+    func calculateAvearage(values: Array<Int>) -> Int {
+        var value: Int = 0
+        for las in values{
+            value = value + las
+        }
+        let final = value/(values.count)
+        return final
+    }
+    
     
 }
